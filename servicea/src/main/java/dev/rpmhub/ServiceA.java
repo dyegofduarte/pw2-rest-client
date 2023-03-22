@@ -13,28 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package dev.rpmhub;
 
+ package dev.rpmhub;
+
+ import javax.inject.Inject;
 import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+ import javax.ws.rs.Path;
+ import javax.ws.rs.PathParam;
+ import javax.ws.rs.Produces;
+ import javax.ws.rs.core.MediaType;
 
-@Path("/servicea")
-public class ServiceA {
-
-    // TODO
-    // Por meio de injeção de dependência,
-    // instancie o Rest Cliente para o serviço B
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+ 
+ @Path("/servicea")
+ public class ServiceA {
+    
+    @Inject
+    @RestClient
+    InterfaceServiceB service;
 
     @GET
     @Path("/person/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public Person getPerson(@PathParam("name") String name){
-        // TODO
-        // Complete o método
-        return null;
-    }
-
-}
+         return service.getPerson(name);
+     }
+ 
+ }
