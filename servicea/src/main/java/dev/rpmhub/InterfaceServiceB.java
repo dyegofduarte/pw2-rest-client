@@ -16,6 +16,6 @@ public interface InterfaceServiceB
         @GET
         @Path("/person/{name}")
         @Produces(MediaType.TEXT_PLAIN)
-        public Person getPerson(@PathParam("name") String name );
+        public Person getPerson(@PathParam("name") String name);
        
             }

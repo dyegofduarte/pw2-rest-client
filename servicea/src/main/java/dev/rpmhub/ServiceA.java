@@ -27,6 +27,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
  
  @Path("/servicea")
  public class ServiceA {
+
     
     @Inject
     @RestClient
@@ -36,7 +37,10 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
     @Path("/person/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public Person getPerson(@PathParam("name") String name){
-         return service.getPerson(name);
+        return service.getPerson(name);
+        
+        //return null;
      }
- 
+
+
  }
