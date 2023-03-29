@@ -15,7 +15,7 @@ public interface InterfaceServiceB
 
         @GET
         @Path("/person/{name}")
-        @Produces(MediaType.TEXT_PLAIN)
+        @Produces(MediaType.APPLICATION_JSON)
         public Person getPerson(@PathParam("name") String name);
        
             }
